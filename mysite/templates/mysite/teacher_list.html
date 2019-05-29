@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="login">
+   <h1>Список преподователй</h1>
+
+   {% if teacher_list %}
+   <ul>
+
+     {% for Teacher in teacher_list %}
+     <li>
+       <a href="{{ Teacher.get_absolute_url }}">{{ Teacher.title}}</a>
+     </li>
+     {% endfor %}
+
+   </ul>
+   {% else %}
+     <p>There are no Teacher in the univers.</p>
+   {% endif %}
+</div>
+{% endblock %}

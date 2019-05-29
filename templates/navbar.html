@@ -1,0 +1,38 @@
+<nav class="fixed-top">
+  <ul>
+      <li><a href="{% url 'home' %}">Главная</a></li>
+      <li><a href="/">Абитуриенту</a>
+        <!-- первый уровень выпадающего списка -->
+			            <ul>
+			                <li><a href="http://www.donnu.ru/admission/info">Приемная комиссия</a></li>
+			                <li><a href="http://www.donnu.ru/admission/dod2019">Дни открытых дверей</a></li>
+			                <li><a href="#">Календарь абитуриента</a>
+                        <ul>
+			                        <li><a href="#">Экзамены</a></li>
+			                        <li><a href="#">Курсы</a></li>
+			  			          </ul>
+                      </li>
+			            </ul>
+      </li>
+      <li><a href="/">Студенту</a>
+        <ul>
+              <li><a href="#">Расписание занятий и экзаменов</a></li>
+              <li><a href="#"></a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Мероприятия</a>
+        <ul>
+              <li><a href="#">CTF</a></li>
+              <li><a href="#">Олимпиады</a></li>
+        </ul>
+      </li>
+      <li><a href="{% url 'teachers' %}">Пероподователи</a></li>
+        {% if user.is_authenticated %}
+          <li>User: {{ user.get_username }}</li>
+          <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+        {% endif %}
+  </ul>
+</nav>

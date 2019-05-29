@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="login">
+    <h1>Преподователь: {{Teacher.title}}</h1>
+    <p><strong>Должность:</strong> {{ Teacher.position }}</p>
+    <p><strong>Детальная информация:</strong> {{ Teacher.summary }}</p>
+    <p><strong>Фотография:</strong><img src="/avatars/{{Teacher.img}}"></p>
+    <p><strong>Дисциплина:</strong> {% for discipline in Teacher.discipline.all %}
+    {{ discipline }}
+    {% if not forloop.last %},
+    {% endif %}{% endfor %}</p>
+  </div>
+{% endblock %}
